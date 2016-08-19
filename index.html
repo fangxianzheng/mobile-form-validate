@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>m-validate</title>
+
+</head>
+
+<body>
+
+<form id="myForm" name="myForm" novalidate>
+    <div class="line">
+        <label for="user">用户名：</label><input id="user" name="user" value="" placeholder="方贤正" />
+    </div>
+    <div class="fline">
+        <label for="password">登录密码：</label>
+        <input id="password" name="password" type="password" maxlength="20" value=""/>
+    </div>
+    <div class="field-item">
+        <label for="confirm-password">确认密码：</label>
+        <input id="confirm-password"  name="confirm-password" maxlength="20" type="password"
+               value=""/>
+    </div>
+    <div class="line">
+        <label for="mobile">手机号：</label><input id="mobile" name="mobile" value="138" />
+    </div>
+    <div class="line">
+        <label for="email">邮箱：</label><input id="email" name="email" />
+    </div>
+    <div class="line">
+        <label for="identityCard">身份证：</label><input id="identityCard" name="identityCard" />
+    </div>
+    <div class="line">
+        <label for="age">年龄：</label><input id="age" name="age" />
+    </div>
+    <div class="line">
+        <label for="sure">确定？</label><input type="checkbox" id="sure" name="sure" />
+    </div>
+    <div class="line">
+        <label >性别：</label>
+        <label for="sex1">男：</label><input type="radio" id="sex1" name="sex" />
+        <label for="sex2">女：</label><input type="radio" id="sex2" name="sex" />
+    </div>
+    <div class="line">
+        <input type="submit" id="submit" name="submit" value="提交" />
+    </div>
+
+
+</form>
+
+
+
+<script>document.documentElement.style.fontSize = document.documentElement.clientWidth / 18.75 + 'px'</script>
+
+<script src="m-validate.js"></script>
+
+<script>
+    var ooo = new Mvalidate('myForm')
+
+    ooo.add({
+        name:'user',
+        rules:['required',/^[\u2E80-\u9FFF]+$/,'maxLength(4)'],
+        message:['这项必须填','必须是中文','最长不能超过4位'],
+        callback:function(el, errorEl){
+            //document.getElementsByTagName('body')[0].appendChild(errorEl)
+        }
+    }).add({
+        name:'password',
+        rules:['required',/\d+/,'minLength(5)'],
+        message:['必须填','必须为数字','太短'],
+        callback:function(el, errorEl){
+            errorEl.style.cssText = 'color:red;'
+
+        }
+    }).add({
+        name:'confirm-password',
+        sameTo:'password',
+        message:['密码必须保持一致']
+    }).add({
+        name:'mobile',
+        rules:[/^[1-9]\d{10}$/],
+        message:['手机号输入错误']
+    }).add({
+        name:'email',
+        rules:[/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/],
+        message:['对不起，您填写的E-mail格式不正确！']
+    }).add({
+        name:'sure',
+        rules:['required'],
+        message:['这项必须选']
+    })
+/*    ooo.remove('email')
+    ooo.add({
+        name:'email',
+        rules:[/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/],
+        message:['对不起，您填写的E-mail格式不正确！']
+    })*/
+
+    document.getElementById('submit').addEventListener('click',function(e){
+        e.preventDefault();
+        ooo.valid()
+    })
+
+
+
+</script>
+
+</body>
+</html>
