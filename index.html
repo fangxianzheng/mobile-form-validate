@@ -63,14 +63,13 @@
         rules:['required',/^[\u2E80-\u9FFF]+$/,'maxLength(4)'],
         message:['用户名必须填写','用户名必须是中文','用户名最长不能超过4位'],
         callback:function(el, errorEl){
-            //document.getElementsByTagName('body')[0].appendChild(errorEl)
+
         }
     }).add({
         name:'password',
         rules:['required',/\d+/,'minLength(5)'],
         message:['密码必须填','密码必须为数字','密码太短'],
         callback:function(el, errorEl){
-            errorEl.style.cssText = 'color:red;'
 
         }
     }).add({
@@ -90,16 +89,11 @@
         rules:['required'],
         message:['确定项项必须选']
     })
-/*    ooo.remove('email')
-    ooo.add({
-        name:'email',
-        rules:[/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/],
-        message:['对不起，您填写的E-mail格式不正确！']
-    })*/
+
 
     document.getElementById('submit').addEventListener('click',function(e){
         e.preventDefault();
-        ooo.valid()
+        console.log(ooo.valid())
     })
 
 
