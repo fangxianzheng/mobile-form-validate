@@ -1,0 +1,39 @@
+* {
+  vertical-align: baseline;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  font-size: 100%;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; }
+
+body {
+  padding: 1rem; }
+
+.line {
+  font-size: 0;
+  padding-top: 1rem; }
+  .line label {
+    font-size: 0.7rem;
+    display: inline-block;
+    width: 4rem; }
+  .line input {
+    font-size: 0.7rem;
+    border: 1px solid #ccc; }
+  .line .sex {
+    display: inline-block; }
+    .line .sex label {
+      width: 2rem; }
+    .line .sex input {
+      margin-right: 2rem; }
+  .line input[type=submit] {
+    display: block;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    padding: 0.5rem 1rem;
+    border-radius: 2px; }
+
+/*# sourceMappingURL=style.css.map */

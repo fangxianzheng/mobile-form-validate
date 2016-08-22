@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>m-validate</title>
 
 </head>
@@ -13,11 +14,11 @@
     <div class="line">
         <label for="user">用户名：</label><input id="user" name="user" value="" placeholder="方贤正" />
     </div>
-    <div class="fline">
+    <div class="line">
         <label for="password">登录密码：</label>
         <input id="password" name="password" type="password" maxlength="20" value=""/>
     </div>
-    <div class="field-item">
+    <div class="line field-item">
         <label for="confirm-password">确认密码：</label>
         <input id="confirm-password"  name="confirm-password" maxlength="20" type="password"
                value=""/>
@@ -39,8 +40,11 @@
     </div>
     <div class="line">
         <label >性别：</label>
-        <label for="sex1">男：</label><input type="radio" id="sex1" name="sex" />
-        <label for="sex2">女：</label><input type="radio" id="sex2" name="sex" />
+        <div class="sex">
+            <label for="sex1">男：</label><input type="radio" id="sex1" name="sex" />
+            <label for="sex2">女：</label><input type="radio" id="sex2" name="sex" />
+        </div>
+
     </div>
     <div class="line">
         <input type="submit" id="submit" name="submit" value="提交" />
@@ -91,7 +95,7 @@
     })
 
 
-    document.getElementById('submit').addEventListener('click',function(e){
+    document.forms.myForm.submit.addEventListener('click',function(e){
         e.preventDefault();
         console.log(ooo.valid())
 
@@ -99,7 +103,6 @@
             //在这里写Ajax提交
         }
     })
-
 
 
 </script>
