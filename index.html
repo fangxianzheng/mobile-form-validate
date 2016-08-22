@@ -61,14 +61,14 @@
     ooo.add({
         name:'user',
         rules:['required',/^[\u2E80-\u9FFF]+$/,'maxLength(4)'],
-        message:['这项必须填','必须是中文','最长不能超过4位'],
+        message:['用户名必须填写','用户名必须是中文','用户名最长不能超过4位'],
         callback:function(el, errorEl){
             //document.getElementsByTagName('body')[0].appendChild(errorEl)
         }
     }).add({
         name:'password',
         rules:['required',/\d+/,'minLength(5)'],
-        message:['必须填','必须为数字','太短'],
+        message:['密码必须填','密码必须为数字','密码太短'],
         callback:function(el, errorEl){
             errorEl.style.cssText = 'color:red;'
 
@@ -76,7 +76,7 @@
     }).add({
         name:'confirm-password',
         sameTo:'password',
-        message:['密码必须保持一致']
+        message:['两次密码必须保持一致']
     }).add({
         name:'mobile',
         rules:[/^[1-9]\d{10}$/],
@@ -88,7 +88,7 @@
     }).add({
         name:'sure',
         rules:['required'],
-        message:['这项必须选']
+        message:['确定项项必须选']
     })
 /*    ooo.remove('email')
     ooo.add({
