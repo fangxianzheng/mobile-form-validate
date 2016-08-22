@@ -75,7 +75,7 @@ mobile-form-validate 移动端表单验证，适合移动端的表单验证
 
 ### 初始化
 
-` var ooo = new Mvalidator(form)` 这样就实例化了一个对象`ooo`
+` var ooo = new Mvalidator(form)` 这样就实例化了一个对象`ooo`，
 `form` 为form 的ID或name.
 
 ### 暴露的方法
