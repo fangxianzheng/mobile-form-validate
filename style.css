@@ -21,8 +21,10 @@ body {
     display: inline-block;
     width: 4rem; }
   .line input {
+    display: inline-block;
     font-size: 0.7rem;
-    border: 1px solid #ccc; }
+    border: 1px solid #ccc;
+    padding: 0.3rem; }
   .line .sex {
     display: inline-block; }
     .line .sex label {
