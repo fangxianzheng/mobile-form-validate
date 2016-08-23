@@ -27,8 +27,7 @@
 
     var Mvalidate = function(form){
         this.form = document.forms[form];
-        this.options = [];
-        this.valid()
+        this.options = []
     };
 
     Mvalidate.prototype = {
@@ -114,15 +113,12 @@
 
     function errorMessageStyle(errEl){
 
-        var cssStyle = document.createElement('style');
-        cssStyle.type = 'text/css';
-        cssStyle.innerHTML = '.errorMessage{position:fixed;top:50%;right:0;left:0;display:block;margin:auto;padding:5%;width:60%;-webkit-border-radius:4px;background-color:rgba(0,0,0,.7);color:#fff;text-align:center;font-size:16px;transform:translateY(-50%);-ms-transform:translateY(-50%)}.animated{-webkit-animation-duration:2s;animation-duration:2s;-webkit-animation-fill-mode:both;animation-fill-mode:both}@-webkit-keyframes fadeOut{50%{opacity:1}to{opacity:0}}@keyframes fadeOut{50%{opacity:1}to{opacity:0}}.fadeOut{-webkit-animation-name:fadeOut;animation-name:fadeOut}';
-
-        document.head.appendChild(cssStyle);
-
         errEl.style.display = 'block';
-        errEl.className += ' animated fadeOut';
 
+        if(!/animated fadeOut/.test(errEl.className)){
+            errEl.className += ' animated fadeOut';
+        }
+        
         errEl.addEventListener('webkitAnimationEnd',endAnime);
         errEl.addEventListener('animationend',endAnime);
 
@@ -132,8 +128,8 @@
             errEl.style.display = 'none'
         }
 
-
     }
+
 
     function validateReg(el, rule){
         return rule.test(el.value)
@@ -168,7 +164,14 @@
         }
         return ele.className = classNameArr.join(' ');
     }
+    function cssStyle(){
+        var cssStyle = document.createElement('style');
+        cssStyle.type = 'text/css';
+        cssStyle.innerHTML = '.errorMessage{position:fixed;top:50%;right:0;left:0;display:block;margin:auto;padding:5%;width:60%;-webkit-border-radius:4px;background-color:rgba(0,0,0,.7);color:#fff;text-align:center;font-size:16px;transform:translateY(-50%);-ms-transform:translateY(-50%)}.animated{-webkit-animation-duration:2s;animation-duration:2s;-webkit-animation-fill-mode:both;animation-fill-mode:both}@-webkit-keyframes fadeOut{50%{opacity:1}to{opacity:0}}@keyframes fadeOut{50%{opacity:1}to{opacity:0}}.fadeOut{-webkit-animation-name:fadeOut;animation-name:fadeOut}';
 
+        document.head.appendChild(cssStyle);
+    }
+    cssStyle();
 
 }(window, undefined));
 
