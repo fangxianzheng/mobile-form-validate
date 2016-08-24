@@ -1,5 +1,5 @@
 # mobile-form-validate
-mobile-form-validate 移动端表单验证，适合移动端的表单验证
+mobile-form-validate 移动端表单验证，适合移动端的表单验证(原生JS，无依赖）
 
 ## 简介
 
