@@ -1,7 +1,7 @@
 /**
  * Created by fangxianzheng on 2016/8/19.
  */
-;(function(win){
+;(function(win, undefined){
 
     var regItem = {
         // 是否为必填
@@ -173,7 +173,7 @@
     }
     cssStyle();
 
-}(window, undefined));
+}(window));
 
 
 
